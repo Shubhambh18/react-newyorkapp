@@ -9,15 +9,18 @@ class Search extends React.Component {
         this.state = {
             posts: [],
             name:''
+           
         }
     }
     handleChange=event=>{
         this.setState({
-            name:event.target.value
+            name:event.target.value,
+           
         })
     }
     getPosts = () => {
-        axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${this.state.name}&api-key=jK2AjLdSMvSJJETWeCpL5SyFa5kDulvN`)
+        let url="https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+this.state.name+"&api-key=jK2AjLdSMvSJJETWeCpL5SyFa5kDulvN"
+        axios.get(url)
             .then(response => {
                 const data = JSON.parse(JSON.stringify(response.data.response.docs));
                 console.log(data);
@@ -57,7 +60,7 @@ class Search extends React.Component {
                         <div className='row'>
                             <span>
                             <h6 className='col'>News Desk</h6>
-                            <input type="text"></input>
+                            <input type="text"   ></input>
                             </span>
                             <span>
                             <h6 className='col'>Section</h6>
