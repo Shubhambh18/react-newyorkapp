@@ -27,7 +27,7 @@ class Search extends React.Component {
             }
             
     getPosts = () => {
-        let url="https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+(this.state.inputsToFilter.name)+"&fq=news_desk:"+(this.state.inputsToFilter.ndesk)+"&fq=section_name:"+(this.state.inputsToFilter.section)+"&fq=type_of_material:"+(this.state.inputsToFilter.type_of_material)+"&api-key=jK2AjLdSMvSJJETWeCpL5SyFa5kDulvN"
+        let url="https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+(this.state.inputsToFilter.name)+"&fq=news_desk:"+(this.state.inputsToFilter.ndesk)+"&section_name:"+(this.state.inputsToFilter.section)+"&type_of_material:"+(this.state.inputsToFilter.type_of_material)+"&api-key=jK2AjLdSMvSJJETWeCpL5SyFa5kDulvN"
         axios.get(url)
             .then(response => {
                 const data = JSON.parse(JSON.stringify(response.data.response.docs));
