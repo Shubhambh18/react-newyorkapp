@@ -20,8 +20,8 @@ const FilterData = (props) => {
                             News Desk: {p.news_desk}<br />
                             Section Name:{p.section_name}<br />
                             Date: {p.pub_date}<br />
-                           
-                            Type:{p.type_of_material}
+                            Type:{p.type_of_material}<br/>
+                            Visit Article : <a href={p.web_url}>Click here to know more</a>
                             <hr />
                         </div>
                     )

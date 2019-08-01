@@ -13,13 +13,15 @@ class Search extends React.Component {
         "name":'',
         "to_date":'',
         "from_date":'',
-        "ndesk":'',
-        "section":'',
-        "type_of_material":''
+        "ndesk":'None',
+        "section":'None',
+        "type_of_material":'None'
 
         }
         }
         }
+
+        
         handleChange=(event)=>{
             let vname=event.target.name;
             let value =event.target.value;
@@ -27,6 +29,7 @@ class Search extends React.Component {
             }
             
     getPosts = () => {
+     
         let url="https://api.nytimes.com/svc/search/v2/articlesearch.json?q="+(this.state.inputsToFilter.name)+"&fq=news_desk:"+(this.state.inputsToFilter.ndesk)+"&section_name:"+(this.state.inputsToFilter.section)+"&type_of_material:"+(this.state.inputsToFilter.type_of_material)+"&api-key=jK2AjLdSMvSJJETWeCpL5SyFa5kDulvN"
         axios.get(url)
             .then(response => {
@@ -39,19 +42,9 @@ class Search extends React.Component {
     }
 
 
+
     render() {
-        // let postList = this.state.posts.map(
-        //     value => (
-        //         <div key={value.abstract}>
-        //             Abstract: {value.abstract}<br />
-        //             News Desk: {value.news_desk}<br />
-        //             Section Name:{value.section_name}<br />
-        //             Type:{value.type_of_material}<br />
-        //             <hr />
-        //         </div>
-        //     )
-        // );
-        return (
+             return (
             <div >
                 <div className='row'>
                     <div className='col'>
@@ -88,6 +81,7 @@ class Search extends React.Component {
                     <button onClick={this.getPosts} className='btn btn-primary  btn-lg'> Search </button>
                     <FilterData posts={this.state.posts} inputsToFilter={this.state.inputsToFilter}></FilterData>
                      {/* {postList}  */}
+                 
                 </div>
             </div>
         );
